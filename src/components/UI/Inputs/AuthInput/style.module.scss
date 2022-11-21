@@ -1,0 +1,19 @@
+.input {
+  position: relative;
+  height: 40px;
+  span {
+    position: absolute;
+    top: 1px;
+    left: 10px;
+    color: orangered;
+    font-size: 9px;
+  }
+
+  input {
+    padding: 0 10px;
+    height: 100%;
+    line-height: 100%;
+    width: 100%;
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,47 @@
+.main {
+  padding: 20px 0 80px 0;
+  &__top {
+    height: 50px;
+  }
+  &__navButtons {
+    display: flex;
+  }
+  &__navButton {
+    padding: 8px 15px;
+    background-color: transparent;
+    font-size: 14px;
+    position: relative;
+    color: #555;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: #455099;
+      transform: translate(-100%, 0);
+      transition: 0.3s;
+    }
+    &.active {
+      color: #455099;
+      &::before {
+        transform: translate(0%, 0%);
+      }
+    }
+    &:hover {
+      color: #455099;
+    }
+  }
+  &__body {
+    display: flex;
+    gap: 30px;
+  }
+  &__posts {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

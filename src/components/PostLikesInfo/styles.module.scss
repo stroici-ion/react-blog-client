@@ -1,0 +1,55 @@
+@import '../../styles/consts.scss';
+
+.root {
+  display: flex;
+  gap: 10px;
+}
+
+.likes {
+  color: $orangeColorDarken;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 12px;
+  background-color: $orangeColorLighten;
+  cursor: pointer;
+  svg {
+    width: 20px;
+    path {
+      stroke: $orangeColorDarken;
+    }
+  }
+  &:hover {
+    background-color: darken($color: $orangeColorLighten, $amount: 10);
+  }
+  &.active {
+    svg {
+      path {
+        fill: $orangeColorDarken;
+      }
+    }
+  }
+}
+
+.dislikes {
+  color: $redColor;
+  background-color: $redColorLighten;
+  svg {
+    transform: scale(1, -1);
+    path {
+      stroke: $redColor;
+    }
+  }
+  &:hover {
+    background-color: darken($color: $redColorLighten, $amount: 10);
+  }
+  &.active {
+    svg {
+      path {
+        fill: $redColor;
+      }
+    }
+  }
+}

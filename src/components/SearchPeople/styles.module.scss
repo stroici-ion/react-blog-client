@@ -1,0 +1,86 @@
+@import '../../styles/consts.scss';
+
+.root {
+  min-width: 200px;
+  min-height: 150px;
+  &__top {
+    height: 30px;
+    position: relative;
+    svg {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      width: 18px;
+      height: 18px;
+      path {
+        stroke: $grayColorLighten;
+        fill: $grayColorLighten;
+      }
+    }
+  }
+  &__input {
+    height: 100%;
+    width: 100%;
+    min-width: none;
+    padding: 5px 30px 5px 10px;
+    border-radius: 20px;
+    border: 2px solid $mainBackColor;
+  }
+  &__peoples {
+    margin: 10px 0;
+  }
+}
+
+.peoples {
+  position: relative;
+  overflow: hidden;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    right: 14px;
+    background-image: linear-gradient(#fff, transparent);
+  }
+  &::after {
+    top: auto;
+    bottom: 0;
+    background-image: linear-gradient(transparent, #fff);
+  }
+  &__scrollArea {
+    @include scrollBar;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+  }
+  &__button {
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 5px;
+    background-color: transparent;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+  &__avatar {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+  }
+  &__empty {
+    color: $grayColorLighten;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

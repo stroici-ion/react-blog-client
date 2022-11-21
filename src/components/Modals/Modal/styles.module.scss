@@ -1,0 +1,66 @@
+@import '../../../styles/consts.scss';
+
+.root {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #aaaaaa99;
+  overflow-y: scroll;
+  user-select: none;
+  &__column {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__body {
+    box-shadow: 0 0 10px 4px #00000033;
+    overflow: hidden;
+    padding: 30px 50px;
+    border-radius: 20px;
+    background-color: #fff;
+    position: relative;
+    min-width: 550px;
+    &.fullSize {
+      width: 100%;
+      border-radius: 0px;
+      height: 100%;
+    }
+  }
+
+  &__closeBtn {
+    z-index: 999;
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+    color: #aaa;
+    background-color: transparent;
+    border: 1px solid #aaa;
+    svg {
+      padding: 7px 5px 5px 5px;
+      path {
+        fill: #aaa;
+        stroke: #aaa;
+      }
+    }
+    &:hover {
+      border: 1px solid #fff;
+      color: #fff;
+      background-color: $redColor;
+      svg {
+        path {
+          fill: #fff;
+          stroke: #fff;
+        }
+      }
+    }
+  }
+}

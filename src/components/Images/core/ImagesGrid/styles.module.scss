@@ -1,0 +1,74 @@
+@import '../../../../styles/postImages.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 5px;
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    .row__decorationRight,
+    .row__decorationLeft {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      background-size: contain;
+      background-position: left center;
+      filter: blur(30px);
+    }
+    .row__decorationRight {
+      background-position: right center;
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__nearVideoBlock {
+    position: relative;
+    overflow: hidden;
+    max-height: 395px;
+    &.fullPost {
+      max-height: 80vh;
+    }
+    &_image {
+      max-width: 100%;
+      max-height: inherit;
+    }
+    &.smallPost {
+      max-height: 120px;
+    }
+  }
+
+  &__nearVideoBlock:not(:last-child) {
+    border-right: 5px solid #fff;
+  }
+
+  &__imageBlock {
+    position: relative;
+    &_image {
+      max-width: 100%;
+      max-height: 200px;
+      &.fullPost {
+        max-height: 20vh;
+      }
+      &.smallPost {
+        max-height: 120px;
+      }
+    }
+  }
+
+  &__imageBlock:not(:last-child) {
+    border-right: 5px solid #fff;
+  }
+
+  &__imageBlock:last-child {
+    border-right: none;
+  }
+}

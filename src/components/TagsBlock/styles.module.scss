@@ -1,0 +1,44 @@
+@import '../../styles/consts.scss';
+
+.tags {
+  @include cardStyle;
+  padding: 15px;
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__button {
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 50px;
+    transition: 0.3s;
+    border-radius: 4px 0 0 4px;
+    background: url('../../assets/hashtag.svg') left center/ 15px no-repeat;
+    &:hover {
+      padding-left: 55px;
+      background: url('../../assets/hashtag-hover.svg') 15px center/ 15px
+        no-repeat;
+      box-shadow: 2px 0 #ddd;
+      color: #445fe7;
+      background-color: #eee;
+    }
+    &:active {
+      background-color: #ddd;
+    }
+  }
+  &__skeleton {
+    text-align: left;
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 50px;
+    transition: 0.3s;
+    background: url('../../assets/hashtag.png') left center/ 15px no-repeat;
+    & > span {
+      font-size: 14px;
+      border-radius: 4px;
+      color: #eee;
+      background-color: #eee;
+    }
+  }
+}

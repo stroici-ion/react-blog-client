@@ -1,0 +1,69 @@
+.loader {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+  justify-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+// .loader {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   overflow: hidden;
+//   position: relative;
+//   visibility: collapsed;
+//   &.visible {
+//     visibility: visible;
+//   }
+//   .circle {
+//     width: 30px;
+//     height: 30px;
+//     background-image: radial-gradient(
+//       at 20px 0px,
+//       #aaa 30%,
+//       #ddd,
+//       80%,
+//       #fff 100%
+//     );
+//     border-radius: 50%;
+//     position: relative;
+//     animation: rotate 1s infinite linear reverse;
+//   }
+
+//   .first {
+//     position: absolute;
+//     top: 5px;
+//     left: 5px;
+//     border-radius: 50%;
+//     width: 20px;
+//     height: 20px;
+//     background: #fff;
+//   }
+//   .second {
+//     position: absolute;
+//     top: -1px;
+//     bottom: -1px;
+//     left: -1px;
+//     right: -1px;
+//     border: 15px solid transparent;
+//     border-top: 15px solid #fff;
+//     border-radius: 50%;
+//     transform: rotate(-40deg);
+//   }
+// }
+
+// @keyframes rotate {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }

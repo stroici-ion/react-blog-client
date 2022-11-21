@@ -1,0 +1,467 @@
+@import '../../../../../styles/consts.scss';
+
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__body {
+    overflow: hidden;
+    flex: 1 1 auto;
+    display: flex;
+    gap: 10px;
+  }
+  &__all {
+    flex: 0 0 180px;
+    padding-left: 20px;
+  }
+  &__toolBar {
+    flex: 0 0 220px;
+    @include scrollBar;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  &__preview {
+    height: 100%;
+    overflow: hidden;
+    flex: 1 1 auto;
+  }
+}
+
+.all {
+  border-left: 2px solid $mainBackColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  gap: 20px;
+  &__body {
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include scrollBar;
+    margin-right: -4px;
+    padding-right: 4px;
+  }
+  &__images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__buttons {
+    margin-right: 15px;
+  }
+  &__image {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    overflow: hidden;
+    opacity: 0.6;
+    height: 100px;
+    img {
+      border-radius: 6px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .decoration {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: inset 0 0 0 3px $mainColorDark;
+      opacity: 0;
+    }
+    .video {
+      pointer-events: none;
+      top: calc(50% - 25px);
+      left: calc(50% - 25px);
+      z-index: 5;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ffffffcc;
+      padding-left: 5px;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 25px;
+        height: 25px;
+        path {
+          fill: $mainColorDark;
+          stroke: $mainColorDark;
+        }
+      }
+    }
+    .remove,
+    .edit,
+    .tagPeople,
+    .resetOne {
+      top: 7px;
+      right: 7px;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      color: $grayColorLighten;
+      border-radius: 50%;
+      transition: 0.2s;
+      opacity: 0;
+      pointer-events: none;
+      &:hover {
+        background-color: $redColor;
+        color: #fff;
+      }
+    }
+    .edit {
+      right: auto;
+      left: 7px;
+      svg {
+        padding-top: 3px;
+        width: 14px;
+        height: 18px;
+        path {
+          fill: $grayColorLighten;
+          stroke: $grayColorLighten;
+        }
+      }
+      &:hover {
+        background-color: $greenColor;
+        color: #fff;
+        svg {
+          path {
+            fill: #fff;
+            stroke: #fff;
+          }
+        }
+      }
+    }
+    .tagPeople {
+      top: auto;
+      bottom: 7px;
+      right: auto;
+      left: 7px;
+      svg {
+        width: 18px;
+        height: 18px;
+        path {
+          fill: $grayColorLighten;
+          stroke: $grayColorLighten;
+        }
+      }
+
+      &:hover {
+        background-color: $lightBlueColor;
+        color: #fff;
+        svg {
+          path {
+            fill: #fff;
+            stroke: #fff;
+          }
+        }
+      }
+    }
+    .resetOne {
+      top: auto;
+      bottom: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 18px;
+        height: 18px;
+        path {
+          fill: $grayColorLighten;
+          stroke: $grayColorLighten;
+        }
+      }
+      &:hover {
+        background-color: $orangeColor;
+        color: #fff;
+        svg {
+          path {
+            fill: #fff;
+            stroke: #fff;
+          }
+        }
+      }
+    }
+    .caption {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 25px;
+      font-family: 'Times New Roman', Times, serif;
+      top: auto;
+      bottom: 7px;
+      right: auto;
+      left: 40px;
+
+      &:hover {
+        background-color: $lightBlueColor;
+        color: #fff;
+        svg {
+          path {
+            fill: #fff;
+            stroke: #fff;
+          }
+        }
+      }
+    }
+    &:hover {
+      opacity: 1;
+      .remove,
+      .edit,
+      .tagPeople,
+      .caption,
+      .resetOne {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+    &.active {
+      opacity: 1;
+      .decoration {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.thumbnails {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  height: 230px;
+  &.active {
+    height: 100%;
+    &::before {
+      z-index: 2;
+      position: absolute;
+      content: '';
+      left: 0;
+      right: 14px;
+      bottom: 220px;
+      height: 10px;
+      background-image: linear-gradient(transparent, #fff);
+    }
+    &::after {
+      z-index: 2;
+      position: absolute;
+      content: '';
+      left: 0;
+      right: 14px;
+      top: 0;
+      height: 10px;
+      background-image: linear-gradient(#fff, transparent);
+    }
+  }
+
+  &__button {
+    flex: 0 0 100px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #ccc;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+    svg {
+      width: 40px;
+      height: 40px;
+      path {
+        stroke: #fff;
+        fill: #fff;
+      }
+    }
+    &:hover {
+      background-color: #aaa;
+    }
+  }
+
+  &__scrollArea {
+    overflow-y: scroll;
+    @include scrollBar;
+    margin-bottom: 10px;
+    z-index: 1;
+    height: 0px;
+    &.active {
+      transition: 1s;
+      height: 500px;
+    }
+  }
+  &__body {
+    position: relative;
+    border-radius: 10px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    background-color: #000;
+  }
+  &__item {
+    position: relative;
+    border-left: 5px dashed #fff;
+    border-right: 5px dashed #fff;
+    padding: 0 5px;
+    transition: 0.2s;
+    cursor: pointer;
+    & > img {
+      border: 1px solid #fff;
+      width: 100%;
+      object-fit: cover;
+    }
+    &.active {
+      border-left: 5px dashed $greenColor;
+      border-right: 5px dashed $greenColor;
+      & > img {
+        border: 1px solid $greenColor;
+      }
+    }
+    &:hover {
+      border-left: 5px dashed $orangeColor;
+      border-right: 5px dashed $orangeColor;
+      & > img {
+        border: 1px solid $orangeColor;
+      }
+    }
+  }
+  &__skeleton {
+    height: 100px;
+    width: 100%;
+    background-color: #444;
+  }
+}
+
+.tools {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: #00000099;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__button {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    svg {
+      width: 24px;
+      height: 24px;
+      path {
+        fill: $mainColorDark;
+        stroke: $mainColorDark;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          fill: #fff;
+          stroke: #fff;
+        }
+      }
+      background-color: $mainColorDark;
+    }
+  }
+}
+
+.title {
+  height: 30px;
+  line-height: 30px;
+}
+
+.toolBar {
+  &__title {
+    text-align: center;
+    font-weight: 700;
+    color: $grayColor;
+  }
+  &__scrollArea {
+    width: 100%;
+    border: 2px solid $mainColor;
+    margin: 10px 0;
+    padding: 10px 5px;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+    @include scrollBar;
+  }
+  &__caption {
+    overflow: hidden;
+    resize: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+  }
+}
+
+.imageTools {
+  &__list {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  &__placeholder {
+    font-size: 12px;
+    text-align: center;
+    flex: 1 1 auto;
+    color: $grayColor;
+  }
+  &__tag {
+    font-size: 14px;
+    background-color: $mainColorDark;
+    color: #fff;
+    border-radius: 10px;
+    padding: 3px 10px 3px 6px;
+    position: relative;
+
+    button {
+      bottom: 30%;
+      right: -15px;
+      position: absolute;
+      opacity: 0;
+      transition: 0.3s;
+      border: 3px solid #fff;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: $mainColor;
+      color: #fff;
+      &:hover {
+        background-color: $mainBackColor;
+        color: $mainColorDark;
+      }
+    }
+
+    &:hover {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+}

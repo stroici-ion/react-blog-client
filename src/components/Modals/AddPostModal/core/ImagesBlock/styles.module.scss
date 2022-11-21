@@ -1,0 +1,102 @@
+@import '../../../../../styles/consts.scss';
+@import '../../../../../styles/postImages.scss';
+
+.images {
+  position: relative;
+  border-radius: 10px;
+  &__dropzone {
+    user-select: none;
+    overflow-y: auto;
+    font-size: 12px;
+    color: $mainColor;
+    position: relative;
+  }
+
+  &__text {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: #888;
+
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    p {
+      color: #444;
+      padding: 10px 0;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    &.active {
+      background-color: #fff;
+      top: 10px;
+      left: 10px;
+      bottom: auto;
+      right: auto;
+      flex-direction: row;
+      gap: 5px;
+      padding: 5px 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 3px 3px #00000066;
+      p {
+        font-size: 13px;
+        padding: 0;
+      }
+      svg {
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        path {
+          stroke: #444;
+          fill: #444;
+        }
+      }
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+
+  &__edit {
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    top: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #444;
+    box-shadow: 0 0 3px 3px #00000066;
+    svg {
+      width: 18px;
+      height: 18px;
+      path {
+        stroke: #444;
+        fill: #444;
+      }
+    }
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+.imagesSkeleton {
+  height: 200px;
+}

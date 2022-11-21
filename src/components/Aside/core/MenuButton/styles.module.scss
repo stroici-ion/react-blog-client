@@ -1,0 +1,36 @@
+@import '../../../../styles/consts.scss';
+
+.root {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  background-color: transparent;
+  transition: 0.2s;
+
+  svg {
+    width: 23px;
+    path {
+      stroke: #e4e4e4;
+      fill: #e4e4e4;
+    }
+  }
+
+  &.active {
+    svg {
+      path {
+        stroke: $mainColor;
+        fill: $mainColor;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: $mainBackColor;
+    svg {
+      path {
+        stroke: $mainColor;
+        fill: $mainColor;
+      }
+    }
+  }
+}

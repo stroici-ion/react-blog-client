@@ -1,0 +1,142 @@
+@import '../../../../../styles/consts.scss';
+
+.root {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  justify-self: stretch;
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  .decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+  }
+  &__image {
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    cursor: pointer;
+  }
+}
+
+.selection {
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fff;
+  outline: 3px solid #222;
+  opacity: 0;
+
+  &__body {
+    @include scrollBar;
+    pointer-events: auto;
+    transform: translate(calc(-50% + 27px), 70px);
+    box-shadow: 2px 2px 3px 4px #66666666;
+    width: 150px;
+    max-height: 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+    &:hover {
+      color: rgb(157, 0, 0);
+    }
+    &.above {
+      transform: translate(calc(-50% + 27px), calc(-100% - 10px));
+    }
+  }
+  &__button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 5px;
+    background-color: transparent;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+  &__avatar {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+  }
+
+  &.visible {
+    opacity: 1;
+    .selection__body {
+      max-height: 150px;
+    }
+  }
+}
+
+.taggedPeople {
+  transform: translate(calc(-50% + 0.5px), 10px);
+  z-index: 1;
+  position: absolute;
+  pointer-events: none;
+  &__removeBtn {
+    pointer-events: auto;
+    z-index: 2;
+    position: relative;
+    left: calc(100% - 12px);
+    top: 12px;
+    box-shadow: 1px 1px 2px #00000077;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: $redColor;
+    &:hover {
+      background-color: $redColor;
+      color: #fff;
+    }
+  }
+
+  &__text {
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 10px 10px 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 2px #66666666;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(50% - 5px);
+      top: -5px;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      transform: rotate(45deg);
+    }
+  }
+  &.reverse {
+    transform: translate(calc(-50% + 0.5px), calc(-100% - 20px));
+    .taggedPeople__text {
+      &::before {
+        top: auto;
+        content: '';
+        left: calc(50% - 5px);
+        bottom: -5px;
+      }
+    }
+  }
+}

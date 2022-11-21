@@ -1,0 +1,79 @@
+@import '../../styles/consts.scss';
+
+.form {
+  text-align: center;
+  &__title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  &__errorMessage {
+    color: orangered;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  &__useEmail {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &__input {
+    margin-bottom: 15px;
+    background-color: #e5e5e5;
+  }
+  &__bottomButton,
+  &__frogotPassword_fast,
+  &__frogotPassword_slow {
+    height: 40px;
+    margin-bottom: 15px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      color: #b1b1b1;
+    }
+  }
+  &__frogotPassword_fast {
+    display: none;
+  }
+  @media screen and (max-width: 780px) {
+    &__frogotPassword_fast {
+      display: block;
+    }
+    &__frogotPassword_slow {
+      display: none;
+    }
+  }
+  &__button {
+    width: 120px;
+    height: 40px;
+    border-radius: 25px;
+    border: 2px solid $mainColorDark;
+    background-color: $mainColorDark;
+    font-size: 16px;
+    color: #fff;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 10px;
+    &:hover {
+      background-color: transparent;
+      color: $mainColorDark;
+    }
+    & > div {
+      width: 30px;
+      height: 35px;
+    }
+    &.isLoading {
+      background-color: #fff;
+      color: $mainColorDark;
+    }
+  }
+  &__bottomButton {
+    @media screen and (min-width: 780px) {
+      display: none;
+    }
+  }
+}

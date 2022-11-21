@@ -1,0 +1,36 @@
+@import '../../../../styles/consts.scss';
+
+.root {
+  &__empty {
+    text-align: center;
+    color: $grayColorLighten;
+  }
+  &__moreComments {
+    background-color: transparent;
+    color: $grayColorLighten;
+    transition: 0.2s;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-left: 15px;
+    span {
+      margin-right: 20px;
+    }
+    svg {
+      transform: rotate(180deg);
+      width: 20px;
+      path {
+        transition: 0.2s;
+        fill: $grayColorLighten;
+      }
+    }
+    &:hover {
+      color: $grayColor;
+      svg {
+        path {
+          fill: $grayColor;
+        }
+      }
+    }
+  }
+}

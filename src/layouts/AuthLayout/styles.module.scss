@@ -1,0 +1,22 @@
+.home {
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  border-radius: 50px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 20px;
+  font-family: cursive;
+  font-size: 18px;
+  color: #03c4da;
+  font-weight: 700;
+  letter-spacing: 1px;
+  svg {
+    height: 40px;
+    width: 40px;
+  }
+}

@@ -1,0 +1,165 @@
+@import '../../styles/consts.scss';
+
+.main {
+  padding: 20px 0 80px 0;
+}
+
+.top {
+  position: relative;
+  &__coverImage {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+  }
+
+  &__user {
+    z-index: 1;
+    position: relative;
+    margin: 0 30px;
+    padding-top: 200px;
+    display: flex;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid $mainBackColor;
+  }
+
+  &__left {
+    width: 280px;
+    left: 30px;
+  }
+
+  &__right {
+    margin-top: 200px;
+    margin-bottom: 20px;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__friends {
+    margin: 20px 0;
+  }
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__count {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  &__images {
+    display: flex;
+    &_box {
+      width: 35px;
+      height: 40px;
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid #fff;
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 30px;
+  height: 40px;
+  &__add {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 10px;
+    background-color: $mainColor;
+    color: #fff;
+    font-weight: 700;
+    svg {
+      width: 35px;
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+
+  &__message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    border-radius: 10px;
+    background-color: $mainBackColor;
+    color: $mainColorDark;
+    font-weight: 700;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      path {
+        fill: $mainColorDark;
+      }
+    }
+  }
+}
+
+.body {
+  margin: 0 30px;
+  &__menu {
+    display: flex;
+    position: relative;
+    // border-bottom: 2px solid $mainBackColor;
+    &_button {
+      background-color: transparent;
+      flex: 0 0 90px;
+      width: 90px;
+      padding: 15px 20px;
+      color: $mainColor;
+      font-size: 16px;
+      font-weight: 700;
+      &:hover {
+        background-color: $mainBackColor;
+        color: $mainColor;
+      }
+      &.active {
+        color: $mainColorDark;
+      }
+    }
+
+    &_decoration {
+      transition: 0.2s;
+      position: absolute;
+      bottom: -2px;
+      height: 3px;
+      width: 90px;
+      background-color: $mainColor;
+      border-radius: 5px;
+    }
+  }
+  &__content {
+    display: flex;
+  }
+}
+
+.content {
+  padding: 20px 0;
+  gap: 20px;
+  &__left {
+    flex: 0 0 350px;
+    &_body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  &__right {
+    flex: 1 1 auto;
+  }
+}

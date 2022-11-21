@@ -1,0 +1,95 @@
+.inputBox {
+  height: 40px;
+  border: 1px solid #999;
+  position: relative;
+
+  input {
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    border: none;
+    font-size: 14px;
+    background-color: transparent;
+  }
+
+  &.active {
+    input {
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.standart {
+    input {
+      &::placeholder {
+        opacity: 1;
+        transition: 0s ease-in-out 0.15s;
+      }
+    }
+  }
+
+  .placeholder {
+    position: absolute;
+    opacity: 0;
+    border-radius: 30px;
+    padding: 0px 7px;
+    left: 3px;
+    pointer-events: none;
+    color: #999;
+    line-height: 14px;
+    transition: top 0.2s, font-size 0.2s, opacity 0s ease 0.2s;
+    top: calc(50% - 8px);
+    font-size: 14px;
+    background-color: transparent;
+
+    &.active {
+      transition: top 0.2s, font-size 0.2s;
+      top: -8px;
+      font-size: 12px;
+      opacity: 1;
+      background-color: #fff;
+    }
+  }
+  svg {
+    stroke: #646464;
+    opacity: 0;
+    visibility: hidden;
+    right: 5px;
+    top: 50%;
+    transition: 0.3s;
+    position: absolute;
+    padding: 4px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    &:hover {
+      stroke: #999999;
+    }
+  }
+  &.error {
+    border: 1px solid orangered;
+    .placeholder {
+      color: orangered;
+    }
+    input {
+      &::placeholder {
+        color: orangered;
+      }
+    }
+  }
+}
+
+.errorMessage {
+  background-color: #fff;
+  padding: 0 2px;
+  top: calc(100% - 5px);
+  right: 5px;
+  position: absolute;
+  font-size: 10px;
+  color: orangered;
+}

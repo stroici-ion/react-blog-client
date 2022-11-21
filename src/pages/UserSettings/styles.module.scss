@@ -1,0 +1,139 @@
+.main {
+  padding: 70px 0 20px 0;
+  &__body {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+}
+.userImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 100px;
+  &__coverImage {
+    border-radius: 5px;
+    background-color: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-position: center;
+    background-size: cover;
+    &:hover {
+      button {
+        opacity: 1;
+      }
+    }
+    button {
+      border-radius: 5px;
+      margin: 10px;
+      padding: 5px 10px;
+      opacity: 0;
+      transition: 0.3s;
+      font-weight: 700;
+      background: url('../../assets/add-cover-image.svg') 100px center/ 20px no-repeat;
+      background-color: #fff;
+      border: 5px solid #fff;
+      &:hover {
+        padding-right: 30px;
+        background: url('../../assets/add-cover-image.svg') right center/ 20px no-repeat;
+        background-color: #fff;
+        opacity: 0.7;
+      }
+      &:active {
+        opacity: 1;
+      }
+    }
+  }
+  &__preview {
+    margin-top: 80px;
+    position: relative;
+  }
+  &__image {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+    width: 210px;
+    height: 210px;
+    background: url('../../assets/user.png') center/cover;
+    background-color: #fff;
+  }
+  &__add {
+    border: 5px solid #fff;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url('../../assets/add-photo.png') center/25px no-repeat;
+    background-color: #ddd;
+  }
+}
+
+.userData {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__row {
+    position: relative;
+    width: 400px;
+    display: flex;
+    padding-right: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    span {
+      font-weight: 700;
+      color: #999;
+    }
+    input {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #999;
+      opacity: 0.5;
+      pointer-events: none;
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+  &__changeButton {
+    position: absolute;
+    right: 0;
+    top: 2.5px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #efefef;
+    opacity: 0.4;
+    pointer-events: none;
+    &:hover {
+      background-color: #ddd;
+    }
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.saveChanges {
+  margin-top: 20px;
+  padding: 10px 20px;
+}

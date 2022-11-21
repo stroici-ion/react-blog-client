@@ -1,0 +1,101 @@
+@import '../../styles/consts.scss';
+
+.root {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  padding: 0 30px 0 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 100;
+  box-shadow: 0 2px #f4f4fc;
+}
+
+.search {
+  border-radius: 10px;
+  background-color: #f4f4fc;
+  height: 30px;
+  width: 30vw;
+  display: flex;
+  button {
+    height: 30px;
+    border-radius: 10px;
+    width: 30px;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    svg {
+      width: 20px;
+      height: 20px;
+      path {
+        stroke: #fff;
+      }
+    }
+    &:hover {
+      background-color: $mainColor;
+      color: #fff;
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+  input {
+    flex: 1 1 auto;
+    padding: 0 8px;
+    background-color: transparent;
+    height: 100%;
+  }
+}
+
+.actions {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__notifications {
+    border-radius: 10px;
+    background-color: $mainColor;
+    width: 35px;
+    height: 35px;
+    svg {
+      width: 20px;
+      height: 20px;
+      path {
+        stroke: #fff;
+        fill: #fff;
+      }
+    }
+    position: relative;
+    span {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: orange;
+      color: #fff;
+      padding: 3px 5px;
+      line-height: 12px;
+      border-radius: 10px;
+    }
+  }
+
+  &__create {
+    color: $mainColor;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px $mainColor;
+    height: 35px;
+    padding: 0 10px;
+    transition: 0.3s;
+    &:hover {
+      background-color: $mainColor;
+      color: #fff;
+    }
+  }
+}

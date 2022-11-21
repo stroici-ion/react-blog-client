@@ -1,0 +1,29 @@
+@import '../../../styles/consts.scss';
+
+.modal {
+  &__row {
+    padding-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+.cancelButton,
+.yesButton {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.yesButton {
+  width: 100px;
+  background-color: $mainColorDark;
+  border: 1px solid $mainColorDark;
+  color: #fff;
+}
+
+.cancelButton {
+  background-color: transparent;
+  border: 1px solid $mainColorDark;
+  color: $mainColorDark;
+}

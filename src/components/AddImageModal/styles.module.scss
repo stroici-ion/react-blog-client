@@ -1,0 +1,116 @@
+.setUserIamge {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__body {
+    border-radius: 20px;
+    padding: 20px 50px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  &__closeBtn {
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+    color: #000;
+    background-color: #ddd;
+    &:hover {
+      background-color: darken($color: #ddd, $amount: 10);
+    }
+  }
+  &__dropzone {
+    position: relative;
+    border-radius: 20px;
+  }
+  &__back {
+    background: url('../../assets/drag-and-drop.png') center/200px no-repeat;
+    background-color: #ddd;
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    right: 0px;
+    bottom: 9px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 100px;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+  }
+  &__editor {
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    border-radius: 20px;
+    &.active {
+      backdrop-filter: blur(5px);
+    }
+  }
+  &__buttons {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__save {
+    margin-top: 20px;
+    width: 140px;
+    padding: 10px;
+  }
+  &__slider {
+    margin-top: 10px;
+    height: 6px;
+    background-color: #ddd;
+    width: 100%;
+    position: relative;
+  }
+  &__zoom {
+    padding-right: 50px;
+    align-self: stretch;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__zoomin,
+  &__zoomout {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    &:hover {
+      background-color: #eee;
+    }
+    &:active {
+      background-color: #ddd;
+    }
+  }
+  &__zoomout {
+    background: url('../../assets/zoom-out.png') center/20px no-repeat;
+    &.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+  &__zoomin {
+    background: url('../../assets/zoom-in.png') center/20px no-repeat;
+  }
+}

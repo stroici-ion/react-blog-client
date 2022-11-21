@@ -1,0 +1,78 @@
+@import '../../../../../styles/consts.scss';
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__list {
+    padding: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__tag {
+    background-color: $mainColorDark;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 15px 5px 10px;
+    position: relative;
+    text-transform: lowercase;
+    &::before {
+      content: '#';
+    }
+
+    button {
+      bottom: 30%;
+      right: -15px;
+      position: absolute;
+      opacity: 0;
+      transition: 0.3s;
+      border: 3px solid #fff;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: $mainColor;
+      color: #fff;
+      &:hover {
+        background-color: $mainBackColor;
+        color: $mainColorDark;
+      }
+    }
+
+    &:hover {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__add {
+    display: flex;
+    padding: 20px 0;
+    gap: 20px;
+    input {
+      text-transform: lowercase;
+      flex: 1 1 auto;
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 2px solid $mainBackColor;
+    }
+
+    button {
+      transition: 0.3s;
+      border: 3px solid #fff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background-color: $mainColor;
+      color: #fff;
+      &:hover {
+        background-color: $mainBackColor;
+        color: $mainColorDark;
+      }
+    }
+  }
+}
