@@ -20,10 +20,7 @@ interface IRegisterForm {
   changePositionFast: any;
 }
 
-const RegisterForm: React.FC<IRegisterForm> = ({
-  className,
-  changePositionFast,
-}) => {
+const RegisterForm: React.FC<IRegisterForm> = ({ className, changePositionFast }) => {
   const email = useInput('');
   const name = useInput('');
   const password = useInputPassword('');
@@ -56,16 +53,10 @@ const RegisterForm: React.FC<IRegisterForm> = ({
     }
 
     if (status === 'error') {
-      setErrorMessage(error.message || '');
-      email.setError(
-        error.errors.find((i: any) => i.param === 'email')?.msg || ''
-      );
-      password.setError(
-        error.errors.find((i: any) => i.param === 'password')?.msg || ''
-      );
-      name.setError(
-        error.errors.find((i: any) => i.param === 'fullName')?.msg || ''
-      );
+      setErrorMessage(error?.message || '');
+      email.setError(error?.errors.find((i: any) => i.param === 'email')?.msg || '');
+      password.setError(error?.errors.find((i: any) => i.param === 'password')?.msg || '');
+      name.setError(error?.errors.find((i: any) => i.param === 'fullName')?.msg || '');
       toast.error('Registartion failed');
     }
     setIsLoading(false);
@@ -75,38 +66,18 @@ const RegisterForm: React.FC<IRegisterForm> = ({
     <form className={classNames(className, styles.form)}>
       <p className={styles.form__title}>Create account</p>
       <p className={styles.form__useEmail}>or use email for registration</p>
-      <Input
-        {...name}
-        className={styles.form__input}
-        type="Text"
-        placeholder="Name"
-      />
-      <Input
-        {...email}
-        className={styles.form__input}
-        type="Email"
-        placeholder="Email"
-      />
-      <InputPassword
-        {...password}
-        className={styles.form__input}
-        placeholder="Password"
-      />
+      <Input {...name} className={styles.form__input} type="Text" placeholder="Name" />
+      <Input {...email} className={styles.form__input} type="Email" placeholder="Email" />
+      <InputPassword {...password} className={styles.form__input} placeholder="Password" />
       <p className={styles.form__errorMessage} children={errorMessage} />
       <button
-        className={classNames(
-          styles.form__button,
-          isLoading && styles.isLoading
-        )}
+        className={classNames(styles.form__button, isLoading && styles.isLoading)}
         onClick={registerClick}
       >
         {isLoading && <Loader size={20} />}
         Sign ip
       </button>
-      <p
-        className={styles.form__bottomButton}
-        onClick={() => changePositionFast(1)}
-      >
+      <p className={styles.form__bottomButton} onClick={() => changePositionFast(1)}>
         Already have an account? <b>Sign In</b>
       </p>
     </form>

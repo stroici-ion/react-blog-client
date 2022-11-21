@@ -1,4 +1,4 @@
-export const API_URL = 'http://localhost:5000';
+export const API_URL = 'https://react-blog-server-lobstery.herokuapp.com';
 export const API_IMAGES_URL = API_URL + '/avatars/';
 export const API_MULTIMEDIA_URL = API_URL + '/multimedia/';
 export const API_COVER_IMAGES_URL = API_URL + '/cover-images/';
